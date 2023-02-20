@@ -1,80 +1,18 @@
 <!DOCTYPE html>
 <html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Poznámkovník</title>
-    <link rel="stylesheet" href="style.css">
-     
-</head>
-<body>
-    
- 
-
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body> 
     <form id="to-do-form">
-        <input type="text"  id="input-note" required>
-        <button id="btn-submit">Přidat poznámku</button>
+      <input type="text" id="input-note" required />
+      <button id="btn-submit">Přidat poznámku</button>
     </form>
-
-
- <div id="tasklist"></div>
-
-
-
-<script>
-
-    // Tasklist
-    let notes =  []
-    // DOM HTML selectors
-    let inputNote = document.getElementById("input-note")
-    let btnSubmit = document.getElementById("btn-submit")
-    
-    // Init
-    let prevId = 0
-    let taskId = 0
-    let form = document.getElementById("to-do-form")
-    form.addEventListener("submit", function(e) {
-        e.preventDefault()
-        let taskValue = inputNote.value
-        // Get last id
-        if(notes.length != 0) {
-        prevId = notes[notes.length - 1].id
-        taskId = prevId + 1} else {id = 0}
-        
-        notes.push({id: taskId, task: taskValue})
-        console.log(notes)
-        
-        
-        
-       
-        console.log(prevId)
-    f()
-    })
-
-    const tasklist = document.getElementById("tasklist")
-    
-function f() {
-
-
-    notes.forEach(element => {
-        let noteBox = document.createElement("div")
-        noteBox.className = "box"
-        let noteDiv = document.createElement("div")
-        let delBtn = document.createElement("div")
-        delBtn.innerText="X"
-        noteDiv.innerText = element.task
-        console.log(element.task)
-        noteBox.appendChild(noteDiv)
-        noteBox.append(delBtn)
-        tasklist.append(noteBox)
-        
-    });
- 
-
-
-    
-}     
-</script>
-</body>
+    <div id="tasklist"></div>
+    <script src="script.js"></script>
+  </body>
 </html>
