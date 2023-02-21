@@ -1,11 +1,2 @@
-#tasklist {
-     
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* definuje X sloupce, každý má stejnou velikost */
-        grid-template-rows: repeat(3, 1fr); /* definuje X řádky, každý má stejnou velikost */
-        justify-items: center;
-        grid-gap: 5px;
-       
-}
-.box {display:grid;          background-color: rgb(255, 255, 155); width: 100%; justify-content: center; height: 200px;
-}
+ 
+ 

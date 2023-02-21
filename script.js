@@ -2,9 +2,9 @@ function getRandomId(min, max) {
   return Math.ceil(Math.random() * (max - min) + min);
 }
 function removeAllChildNodes(parent) {
-    while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
 }
 // Tasklist
 let notesArr = [];
@@ -28,17 +28,30 @@ form.addEventListener("submit", function (e) {
   localStorage.setItem("storage", JSON.stringify(notesArr));
 });
 function renderTasks(input) {
-  let box = document.createElement("div");
-  let delBtn = document.createElement("button");
-  delBtn.innerText = "X";
-  delBtn.id = input.id; 
-  box.className = "box";
-  box.innerText = input.task;
-  box.appendChild(delBtn);
-  taskList.appendChild(box);
+  let col = document.createElement("div");
+   
+  col.className = "col-6";
+  let card = document.createElement("div");
+  card.className = "card mb-3 mt-3";
+  let cardBody = document.createElement("div");
+  cardBody.className = "card-body";
+  let cardText = document.createElement("p");
+  cardText.className = "card-text";
+  let delBtn = document.createElement("a");
+  delBtn.className = "btn btn-danger";
+ 
+  col.appendChild(card);
+  card.appendChild(cardBody);
+  cardBody.appendChild(cardText);
+  cardBody.appendChild(delBtn);
 
+  cardText.innerHTML = input.task;
+  delBtn.innerHTML = "Odstranit";
+   
+  
+  taskList.appendChild(col);
+  taskList.className = "row ";
   delBtn.addEventListener("click", function (e) {
-
     deleteNote(input.id);
     removeAllChildNodes(taskList);
     notesArr.forEach((element) => {
@@ -46,10 +59,8 @@ function renderTasks(input) {
     });
 
     localStorage.setItem("storage", JSON.stringify(notesArr));
-
-   });
+  });
 }
-
 
 function deleteNote(id) {
   // delete from notesArr by ID
@@ -58,9 +69,6 @@ function deleteNote(id) {
   notesArr = result;
   console.log(notesArr);
 }
-
- 
-
 
 window.addEventListener("load", function () {
   if (localStorage.getItem("storage") != null) {
