@@ -1,11 +1,9 @@
-function getRandomId(min, max) {
-  return Math.ceil(Math.random() * (max - min) + min);
-}
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
 }
+ 
 // Tasklist
 let notesArr = [];
 // DOM HTML selectors
@@ -21,7 +19,7 @@ form.addEventListener("submit", function (e) {
   else{
   let taskValue = inputNote.value;
   
-  let newId = getRandomId(1, 100);
+  let newId = uuidv4();
   notesArr.push({ id: newId, task: taskValue });
   // Pin to our board
   renderTasks({ id: newId, task: taskValue });
@@ -33,9 +31,8 @@ form.addEventListener("submit", function (e) {
 
 
 
-
 function renderTasks(input) {
-   
+  
   let col = document.createElement("div");
    
   col.className = "col-12 col-sm-6 col-md-3";
