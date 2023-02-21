@@ -30,7 +30,7 @@ form.addEventListener("submit", function (e) {
 function renderTasks(input) {
   let col = document.createElement("div");
    
-  col.className = "col-6";
+  col.className = "col-12 col-sm-6 col-md-3";
   let card = document.createElement("div");
   card.className = "card mb-3 mt-3";
   let cardBody = document.createElement("div");
