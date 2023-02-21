@@ -10,6 +10,7 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
 
     <title>Poznámkovník</title>
     <link rel="stylesheet" href="style.css" />
@@ -25,21 +26,33 @@
             id="input-note"
             name="input-note"
             placeholder="Zadejte poznámku"
+            maxlength="500"
             required
           />
         </div>
-                     
-        <button type="submit" class="btn btn-primary col-12 col-md-1" style="width: 100;">Přidat</button>
-      </form>
 
-      <div id="tasklist" class="row"></div>
+        <button
+          type="submit"
+          class="btn btn-primary col-12 col-md-2"
+           
+        >
+          Přidat
+        </button>
+      </form>
+ 
+      <div
+      id="tasklist"
+      class="row mb-5 card-columns"
+      data-masonry='{"percentPosition": true, itemSelector:  .col-12  }'
+    >
+    <!--PLACE FOR TASKS-->
     </div>
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      src="/docs/5.0/dist/js/boosted.bundle.min.js"
+      integrity="sha384-a3K6jz95fJEM/VHhViODijMUDGZsk3kzR9A9te5dH5jYIoXW7scODk+TtVjLhCW2"
       crossorigin="anonymous"
     ></script>
-
+    
     <script src="script.js"></script>
   </body>
 </html>

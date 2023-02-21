@@ -15,19 +15,27 @@ const btnSave = document.getElementById("btn-to-ls");
 const inputNote = document.getElementById("input-note");
 const form = document.getElementById("to-do-form");
 // Form listener
-form.addEventListener("submit", function (e) {
+form.addEventListener("submit", function (e) {  
   e.preventDefault();
+  if(inputNote.value.length > 1000) {alert("Překročili jste limit 1 000 znaků")} 
+  else{
   let taskValue = inputNote.value;
-  let newId = getRandomId(0, 100);
+  
+  let newId = getRandomId(1, 100);
   notesArr.push({ id: newId, task: taskValue });
   // Pin to our board
   renderTasks({ id: newId, task: taskValue });
   // Clear the input
   inputNote.value = "";
   // Pass notes to LocalStorage
-  localStorage.setItem("storage", JSON.stringify(notesArr));
+  localStorage.setItem("storage", JSON.stringify(notesArr));}
 });
+
+
+
+
 function renderTasks(input) {
+   
   let col = document.createElement("div");
    
   col.className = "col-12 col-sm-6 col-md-3";
@@ -51,6 +59,7 @@ function renderTasks(input) {
   
   taskList.appendChild(col);
   taskList.className = "row ";
+  initMasonry();
   delBtn.addEventListener("click", function (e) {
     deleteNote(input.id);
     removeAllChildNodes(taskList);
@@ -60,6 +69,8 @@ function renderTasks(input) {
 
     localStorage.setItem("storage", JSON.stringify(notesArr));
   });
+
+
 }
 
 function deleteNote(id) {
@@ -81,4 +92,15 @@ window.addEventListener("load", function () {
     });
     console.log("***");
   }
+});
+
+function initMasonry() {
+  var container = document.querySelector('#tasklist');
+  new Masonry(container, {
+    itemSelector: '.col-12',
+    percentPosition: true
+  });
+}
+window.addEventListener('load', function() {
+  initMasonry();
 });
