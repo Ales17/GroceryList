@@ -75,18 +75,22 @@ function renderTasks(input) {
       if (tasksArray[i].id === e.target.id) {
         //tasksArray[i].color = "#bFFFbF";
 
-        if (colors.indexOf(tasksArray[i].color) === colors.length - 1) {
-          tasksArray[i].color = colors[0];
-        } else {
-          tasksArray[i].color = colors[colors.indexOf(tasksArray[i].color) + 1];
+        // LOOP THROUGH COLORS
+        for (let j = 0; j < colors.length; j++) {
+          if (tasksArray[i].color === colors[j]) {
+            tasksArray[i].color = colors[j + 1];
+            break;
+          } else if (tasksArray[i].color === colors[colors.length - 1]) {
+            tasksArray[i].color = colors[0];
+            break;
+          }
         }
       }
+      removeAllChildNodes(divTasks);
+      tasksArray.forEach((e) => renderTasks(e));
+
+      console.log(e);
     }
-
-    removeAllChildNodes(divTasks);
-    tasksArray.forEach((e) => renderTasks(e));
-
-    console.log(e);
   });
 }
 // Deletes from array by ID
