@@ -1,9 +1,8 @@
-## Poznámkovník - notepad
+## Poznámkovník (Notepad)
 
-Simple note taking app using local storage..
+Simple note taking app using local storage.
 
 Features:
-
 - adding a note
 - removing a note
-- responsive design
+- responsive design (Bootstrap)
