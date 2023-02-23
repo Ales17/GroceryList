@@ -1,3 +1,4 @@
+ 
 const colors = ["#ffffff", "#bFFFbF", "#ffffbf"];
 // Functions
 function initMasonry() {
@@ -15,7 +16,7 @@ function removeAllChildNodes(parent) {
 function renderTasks(input) {
   // BS col
   let col = document.createElement("div");
-  col.className = "col-12 col-sm-6 col-md-3";
+  col.className = "col-12 col-sm-4 col-md-3";
   // BS card
   let card = document.createElement("div");
   card.className = "card mb-3 mt-3";
@@ -67,7 +68,10 @@ function renderTasks(input) {
     });
     localStorage.setItem("storage", JSON.stringify(tasksArray));
   });
-
+  // Hack to "click" button when icon clicked
+  iconCol.addEventListener('click', () => {
+    btnCol.click();
+  });
   btnCol.addEventListener("click", function (e) {
     console.log(e.target.id);
 
@@ -86,9 +90,10 @@ function renderTasks(input) {
           }
         }
       }
+      
       removeAllChildNodes(divTasks);
       tasksArray.forEach((e) => renderTasks(e));
-
+      localStorage.setItem("storage", JSON.stringify(tasksArray));
       console.log(e);
     }
   });
