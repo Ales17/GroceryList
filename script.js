@@ -33,15 +33,15 @@ function renderTasks(input) {
   btnGroup.className = "btn-group";
   // BS button
   let btnDel = document.createElement("a");
-  btnDel.className = "btn btn-danger btn-sm";
+  btnDel.className = "btn btn-danger     ";
   let iconDel = document.createElement("i");
   iconDel.className = "bi bi-x-square-fill";
   // Color btn
   let btnCol = document.createElement("a");
-  btnCol.className = "btn btn-primary btn-sm";
+  btnCol.className = "btn btn-primary   ";
   btnCol.id = input.id;
   let iconCol = document.createElement("i");
-  iconCol.className = "bi bi-palette-fill";
+  iconCol.className = "bi bi-palette-fill  ";
   // Setting balues
   cardText.innerHTML = input.task;
 
